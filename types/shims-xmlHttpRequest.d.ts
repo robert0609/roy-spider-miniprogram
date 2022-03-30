@@ -1,0 +1,3 @@
+interface XMLHttpRequest {
+  trace: IRequestTrace;
+}
