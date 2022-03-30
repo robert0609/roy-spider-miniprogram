@@ -1,24 +1,17 @@
 import { IRequestTrace } from "./index";
 
-export type TrackEvent = 'pv' | 'pageStay' | 'elementShow' | 'click' | 'perApi' | 'perPageLoad';
+export type TrackEvent = 'launch' | 'pageView' | 'elementClick' | 'perApi' | 'perPageLoad';
 
-export type PVArgs = {
+export type LaunchArgs = {
+  currentUrl: string;
+};
+
+export type PageViewArgs = {
   currentUrl: string;
   referrerUrl: string;
 };
 
-export type PageStayArgs = {
-  currentUrl: string;
-  referrerUrl: string;
-  stayDuration: number;
-};
-
-export type ElementShowArgs = {
-  showName: string;
-  duration: number;
-}
-
-export type ClickArgs = {
+export type ElementClickArgs = {
   actionName: string;
   actionArgs?: any;
   event: MouseEvent;
@@ -49,4 +42,4 @@ export type PerPageLoadArgs = {
   rawPerformance?: PerformanceTiming;
 };
 
-export type TrackEventHandler<T extends (PVArgs | PageStayArgs | ElementShowArgs | ClickArgs | PerApiArgs | PerPageLoadArgs)> = (arg: T) => void;
+export type TrackEventHandler<T extends (LaunchArgs | PageViewArgs | ElementClickArgs | PerApiArgs | PerPageLoadArgs)> = (arg: T) => void;

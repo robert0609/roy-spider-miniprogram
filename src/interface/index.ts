@@ -1,4 +1,4 @@
-import { TrackEventHandler, PVArgs, PageStayArgs, ElementShowArgs, ClickArgs, PerApiArgs, PerPageLoadArgs } from "./Track";
+import { TrackEventHandler, PageViewArgs, PageStayArgs, ElementShowArgs, ElementClickArgs, PerApiArgs, PerPageLoadArgs } from "./Track";
 
 /**
  * 请求监听相关的类型
@@ -52,11 +52,11 @@ export interface IShowAreaTimeParams {
 }
 
 export type TrackHandlers = {
-  ['pv']?: TrackEventHandler<PVArgs>;
+  ['pv']?: TrackEventHandler<PageViewArgs>;
   ['pageStay']?: TrackEventHandler<PageStayArgs>;
   ['elementEnterViewport']?: TrackEventHandler<ElementShowArgs>;
   ['elementShow']?: TrackEventHandler<ElementShowArgs>;
-  ['click']?: TrackEventHandler<ClickArgs>;
+  ['click']?: TrackEventHandler<ElementClickArgs>;
   ['perApi']?: TrackEventHandler<PerApiArgs>;
   ['perPageLoad']?: TrackEventHandler<PerPageLoadArgs>;
 };
